@@ -1,0 +1,27 @@
+-- 1. Creamos la base de datos desde cero
+CREATE DATABASE IF NOT EXISTS sistema_verduras;
+USE sistema_verduras;
+
+-- 2. Creamos la tabla de usuarios (Para el Login y Registro)
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    nombre_completo VARCHAR(100) NOT NULL,
+    foto VARCHAR(255) NOT NULL
+);
+
+-- 3. Creamos la tabla de empleados (Con los 11 campos totales: ID + 10 visibles)
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,            -- Campo interno (No se muestra)
+    codigo_empleado VARCHAR(6) UNIQUE NOT NULL,   -- Límite de 6 caracteres y único
+    nombres VARCHAR(50) NOT NULL,                 
+    apellidos VARCHAR(50) NOT NULL,               
+    fecha_contratacion DATE NOT NULL,             
+    salario_diario DECIMAL(8,2) NOT NULL,         
+    area_trabajo VARCHAR(50) NOT NULL,            
+    cultivo_asignado VARCHAR(50) NOT NULL,        
+    telefono VARCHAR(15) NOT NULL,                
+    edad INT NOT NULL,                            
+    turno VARCHAR(15) NOT NULL DEFAULT 'Diurno'   -- El décimo campo visible
+);
